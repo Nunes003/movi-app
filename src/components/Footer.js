@@ -5,10 +5,7 @@ function Footer() {
   return (
     <div className="footer">
       <p>Trabalho realizado por: João Nunes</p>
-      <p><a href="https://github.com/seu-username
-      
-      
-      " target="_blank" rel="noopener noreferrer">GitHub</a>
+      <p><a href="https://github.com/Nunes003/trabalho.git">GitHub</a>
       </p>
     </div>
   );
