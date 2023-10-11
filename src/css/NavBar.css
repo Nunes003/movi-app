@@ -1,0 +1,17 @@
+/* navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 50px;
+}
+
+.navbar select {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
