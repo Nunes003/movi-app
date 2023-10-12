@@ -82,7 +82,7 @@ export const movies = [
         "Morris Birdyellowhead"
       ],
       "summary": "As the Mayan kingdom faces its decline, the rulers insist the key to prosperity is to build more temples and offer human sacrifices. Jaguar Paw, a young man captured for sacrifice, flees to avoid his fate.",
-      "posterUrl": "https://i.pinimg.com/564x/d2/37/cb/d237cb1b7d1998beffc5053a111b1321.jpg"
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/pt/2/2e/Apocalyrpto.jpg"
     },
     {
       "id": 12,
@@ -413,5 +413,28 @@ export const movies = [
       ],
       "summary": "Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe.",
       "posterUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Ice_Age_%282002_film%29_poster.jpg/220px-Ice_Age_%282002_film%29_poster.jpg"
+    },
+    {
+      "id": 132,
+      "title": "Finding Nemo",
+      "year": "2003",
+      "runtime": "100",
+      "genres": "Animation",
+      "director": ["Andrew Stanton", "Lee Unkrich"],
+      "actors": ["Albert Brooks", "Ellen DeGeneres", "Alexander Gould", "Willem Dafoe"],
+      "summary": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/2/29/Finding_Nemo.jpg/220px-Finding_Nemo.jpg"
+    },
+    {
+      "id": 133,
+      "title": "Forrest Gump",
+      "year": "1994",
+      "runtime": "142",
+      "genres": "Drama",
+      "director": ["Robert Zemeckis"],
+      "actors": ["Tom Hanks", "Robin Wright", "Gary Sinise", "Sally Field"],
+      "summary": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75.",
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Forrest_Gump_poster.jpg/220px-Forrest_Gump_poster.jpg"
     }
+    
   ]

@@ -20,14 +20,17 @@ h1 {
 
 .movie-list {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3); 
+  border-radius: 10px; 
 }
 
-.letra{
-  font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+
+
 
 .movie-list-container {
   text-align: left; /* Alinhe os filmes à esquerda */
@@ -37,17 +40,21 @@ h1 {
 
 /* Estilo dos filmes (mantenha os estilos existentes) */
 .movie-card {
-  border: 1px solid #5957579d;
+  border: 1px solid #33333364;
   border-radius: 10px;
   padding: 10px;
   margin: 20px;
   width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #f3f0f486;
 }
 
-/* Estilo da mensagem "Não existem filmes para esta categoria...." (mantenha os estilos existentes) */
+.letra{
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .letra2 {
   text-align: center;
   margin-left: auto;
