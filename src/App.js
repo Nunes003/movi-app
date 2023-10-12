@@ -45,13 +45,17 @@ function App() {
       const updatedFavorites = [...favoriteMovies];
       updatedFavorites.splice(index, 1);
       setFavoriteMovies(updatedFavorites);
+  
+      // Atualize o localStorage após a atualização do estado
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     } else {
       // Se o filme não é um favorito, adicione-o à lista de favoritos
-      setFavoriteMovies([...favoriteMovies, movieId]);
+      const updatedFavorites = [...favoriteMovies, movieId];
+      setFavoriteMovies(updatedFavorites);
+  
+      // Atualize o localStorage após a atualização do estado
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     }
-
-    // Atualize o localStorage após cada alteração
-    localStorage.setItem("favorites", JSON.stringify(favoriteMovies));
   };
 
   // Efeito para salvar a lista de favoritos no localStorage sempre que houver alterações

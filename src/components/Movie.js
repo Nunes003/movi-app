@@ -10,7 +10,7 @@ function Movie({ movie, onToggleFavorite, isFavorite }) {
 
   return (
     <div className="movie-card" key={movie.id}>
-      <p className="estrela" onClick={() => onToggleFavorite(movie.id)}>{isFavorite ? '🌟' : '✩'}</p>
+      <p onClick={() => onToggleFavorite(movie.id)}>{isFavorite ? '🌟' : '✩'}</p>
       <img
         src={movie.posterUrl}
         alt={movie.title}
@@ -25,7 +25,7 @@ function Movie({ movie, onToggleFavorite, isFavorite }) {
             <p className='letra'>Time: {movie.runtime} min</p>
             <p className='letra'>Director: {movie.director.join(', ')}</p>
             <p className='letra'>Actors: {movie.actors.join(', ')}</p>
-            <p className='letra'>{movie.summary}</p>
+            <p className='letra'>About: {movie.summary}</p>
         </div>
       )}
       

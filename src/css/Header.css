@@ -1,5 +1,6 @@
 /* Header.css */
 .header {
+  width: 78%;
   background-color: #333;
   color: white;
   text-align: left;
@@ -13,7 +14,7 @@
 .header h1 {
   font-size: 2rem;
   margin-left: 10px;
-  padding-right: 65%;
+  padding-right: 57%;
 }
 
 .popcorn-image {
