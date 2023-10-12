@@ -6,7 +6,26 @@
     text-align: center;
     border-radius: 30px;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
+    display: space-between;
   }
+
+  .img{
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding-left: 75%;
+  }
+
+  a{
+    color: white;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
   
