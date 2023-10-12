@@ -1,21 +1,21 @@
 // Importações de módulos e estilos
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import MovieList from './components/MovieList';
-import Header from './components/Header';
-import { movies, genres } from './data/moviesJson';
-import Footer from './components/Footer';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import MovieList from "./components/MovieList";
+import Header from "./components/Header";
+import { movies, genres } from "./data/moviesJson";
+import Footer from "./components/Footer";
 
 function App() {
   // Declaração de estados usando o Hook useState
-  const [selectedGenre, setSelectedGenre] = useState('All genres');
+  const [selectedGenre, setSelectedGenre] = useState("All genres");
   const [showFavorites, setShowFavorites] = useState(false);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   // Efeito para carregar favoritos do localStorage ao iniciar a aplicação
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavoriteMovies(favorites);
   }, []);
 
@@ -23,14 +23,16 @@ function App() {
   useEffect(() => {
     if (showFavorites) {
       // Se a opção de favoritos está ativa, filtra os filmes favoritos
-      const favorites = movies.filter((movie) => favoriteMovies.includes(movie.id));
+      const favorites = movies.filter((movie) =>
+        favoriteMovies.includes(movie.id)
+      );
       setFilteredMovies(favorites);
-    } else if (selectedGenre === 'All genres') {
+    } else if (selectedGenre === "All genres") {
       // Se "All genres" está selecionado, mostra todos os filmes
       setFilteredMovies(movies);
     } else {
       // Filtra os filmes com base no gênero selecionado
-      const filtered = movies.filter(movie => movie.genres === selectedGenre);
+      const filtered = movies.filter((movie) => movie.genres === selectedGenre);
       setFilteredMovies(filtered);
     }
   }, [selectedGenre, showFavorites, favoriteMovies]);
@@ -47,18 +49,16 @@ function App() {
       // Se o filme não é um favorito, adicione-o à lista de favoritos
       setFavoriteMovies([...favoriteMovies, movieId]);
     }
-  
+
     // Atualize o localStorage após cada alteração
-    localStorage.setItem('favorites', JSON.stringify(favoriteMovies));
+    localStorage.setItem("favorites", JSON.stringify(favoriteMovies));
   };
-  
 
   // Efeito para salvar a lista de favoritos no localStorage sempre que houver alterações
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavoriteMovies(favorites);
   }, []);
-  
 
   return (
     <div className="App">
@@ -70,16 +70,15 @@ function App() {
         onShowFavorites={setShowFavorites}
       />
       <div className="movie-list-container">
-  <MovieList
-    movies={filteredMovies}
-    onToggleFavorite={toggleFavorite}
-    favoriteMovies={favoriteMovies}
-  />
-</div>
+        <MovieList
+          movies={filteredMovies}
+          onToggleFavorite={toggleFavorite}
+          favoriteMovies={favoriteMovies}
+        />
+      </div>
 
-      <Footer 
-      />
+      <Footer />
     </div>
   );
-  }
+}
 export default App;

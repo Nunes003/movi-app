@@ -34,10 +34,9 @@ function NavBar({
         </select>
         <button
           onClick={() => onShowFavorites(!showFavorites)}
-          className="fav-button" // Adicione uma classe para o botão
+          className="fav-button"
         >
           {showFavorites ? "Show All" : "Show Favorites"}{" "}
-          {/* Texto do botão dinâmico */}
         </button>
       </div>
     </nav>
