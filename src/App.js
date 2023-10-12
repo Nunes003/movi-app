@@ -69,11 +69,14 @@ function App() {
         showFavorites={showFavorites}
         onShowFavorites={setShowFavorites}
       />
-      <MovieList
-        movies={filteredMovies}
-        onToggleFavorite={toggleFavorite}
-        favoriteMovies={favoriteMovies}
-      />
+      <div className="movie-list-container">
+  <MovieList
+    movies={filteredMovies}
+    onToggleFavorite={toggleFavorite}
+    favoriteMovies={favoriteMovies}
+  />
+</div>
+
       <Footer 
       />
     </div>

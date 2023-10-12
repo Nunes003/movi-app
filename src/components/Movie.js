@@ -17,15 +17,15 @@ function Movie({ movie, onToggleFavorite, isFavorite }) {
         onClick={toggleAdditionalInfo}
       />
       <h2>{movie.title}</h2>
-      <p>{movie.year}</p>
-      <p>{movie.runtime} min</p>
-      <p>{movie.genres}</p>
+      <p className='letra'> Year: {movie.year}</p>
+      <p className='letra'> {movie.genres}</p>
       
       {showAdditionalInfo && (
         <div>
-            <p>Director: {movie.director.join(', ')}</p>
-            <p>Actors: {movie.actors.join(', ')}</p>
-            <p>{movie.summary}</p>
+            <p className='letra'>Time: {movie.runtime} min</p>
+            <p className='letra'>Director: {movie.director.join(', ')}</p>
+            <p className='letra'>Actors: {movie.actors.join(', ')}</p>
+            <p className='letra'>{movie.summary}</p>
         </div>
       )}
       

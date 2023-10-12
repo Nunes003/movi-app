@@ -14,7 +14,7 @@ function MovieList({ movies, onToggleFavorite, favoriteMovies }) {
           />
         ))
       ) : (
-        <p>Não existem filmes para esta categoria.</p>
+        <p className='letra2'>Não existem filmes para esta categoria....</p>
       )}
     </div>
   );
