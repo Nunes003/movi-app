@@ -1,6 +1,7 @@
 // Importações de módulos e estilos
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./css/Movie.css";
 import MovieList from "./components/MovieList";
 import Header from "./components/Header";
 import { movies, genres } from "./data/moviesJson";

@@ -9,7 +9,6 @@
   background-color: #1988d2;
 }
 
-
 /* ---- Titulo do Site ----*/
 
 h1 {
@@ -18,42 +17,14 @@ h1 {
   color: white;
 }
 
-
-/* ---- Dispizição dos filmes ----*/
-
-.movie-list {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.3); 
-  border-radius: 10px; 
-}
-
-.movie-list-container {
-  text-align: left; 
-  margin: 20px auto;
-  width: 80%;
-}
-
-/* Estilo dos filmes (mantenha os estilos existentes) */
-.movie-card {
-  border: 1px solid #33333364;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 20px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  background-color: #f3f0f486;
-}
+/* Letra dos items dentro da capa */
 
 .letra{
   font-weight: bold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+/* Letra quando não existe filme da categoria */
 
 .letra2 {
   text-align: center;
@@ -63,15 +34,6 @@ h1 {
   flex-wrap: wrap;
   font-weight: bold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* ---- Capa dos Filmes ----*/
-
-img {
-  width: 100%;
-  height: auto;
-  border-radius: 30px 30px;
-  object-fit: cover;
 }
 
 

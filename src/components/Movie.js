@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../css/Movie.css'
 
 function Movie({ movie, onToggleFavorite, isFavorite }) {
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);

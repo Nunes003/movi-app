@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
+import '../css/Movie.css';
 
 function MovieList({ movies, onToggleFavorite, favoriteMovies }) {
   return (
