@@ -25,7 +25,7 @@ function NavBar({
           value={showFavorites ? "Favorites" : selectedGenre}
           onChange={handleGenreChange}
         >
-          <option value="All genres">Categories</option>
+          <option value="All genres">All genres</option>
           {genres.map((genre, index) => (
             <option key={index} value={genre}>
               {genre}

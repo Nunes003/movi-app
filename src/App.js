@@ -1,5 +1,4 @@
-// Importações de módulos e estilos
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "./css/Movie.css";
 import MovieList from "./components/MovieList";
@@ -11,59 +10,44 @@ function App() {
   // Declaração de estados usando o Hook useState
   const [selectedGenre, setSelectedGenre] = useState("All genres");
   const [showFavorites, setShowFavorites] = useState(false);
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
-  const [filteredMovies, setFilteredMovies] = useState([]);
-
-  // Efeito para carregar favoritos do localStorage ao iniciar a aplicação
-  useEffect(() => {
+  const [favoriteMovies, setFavoriteMovies] = useState(() => {
+    // Carregue os favoritos do localStorage ou uma lista vazia se não houver dados salvos.
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavoriteMovies(favorites);
-  }, []);
+    return favorites;
+  });
 
-  // Efeito para filtrar filmes com base no gênero selecionado e na alternância de favoritos
-  useEffect(() => {
-    if (showFavorites) {
-      // Se a opção de favoritos está ativa, filtra os filmes favoritos
-      const favorites = movies.filter((movie) =>
-        favoriteMovies.includes(movie.id)
-      );
-      setFilteredMovies(favorites);
-    } else if (selectedGenre === "All genres") {
-      // Se "All genres" está selecionado, mostra todos os filmes
-      setFilteredMovies(movies);
-    } else {
-      // Filtra os filmes com base no gênero selecionado
-      const filtered = movies.filter((movie) => movie.genres === selectedGenre);
-      setFilteredMovies(filtered);
-    }
-  }, [selectedGenre, showFavorites, favoriteMovies]);
-
-  // Função para alternar filmes favoritos
+  // Função para alternar filmes favoritos e atualizar o localStorage
   const toggleFavorite = (movieId) => {
-    const index = favoriteMovies.indexOf(movieId);
+    const updatedFavorites = [...favoriteMovies];
+    const index = updatedFavorites.indexOf(movieId);
     if (index !== -1) {
       // Se o filme já é um favorito, remova-o da lista de favoritos
-      const updatedFavorites = [...favoriteMovies];
       updatedFavorites.splice(index, 1);
-      setFavoriteMovies(updatedFavorites);
-  
-      // Atualize o localStorage após a atualização do estado
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     } else {
       // Se o filme não é um favorito, adicione-o à lista de favoritos
-      const updatedFavorites = [...favoriteMovies, movieId];
-      setFavoriteMovies(updatedFavorites);
-  
-      // Atualize o localStorage após a atualização do estado
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      updatedFavorites.push(movieId);
+    }
+    setFavoriteMovies(updatedFavorites);
+    // Salve os favoritos no localStorage
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
+  // Função para filtrar filmes com base no gênero selecionado e na alternância de favoritos
+  const filterMovies = (showFavs, genre) => {
+    if (showFavs) {
+      // Se a opção de favoritos está ativa, filtra os filmes favoritos
+      return movies.filter((movie) => favoriteMovies.includes(movie.id));
+    } else if (genre === "All genres") {
+      // Se "All genres" está selecionado, mostra todos os filmes
+      return movies;
+    } else {
+      // Filtra os filmes com base no gênero selecionado
+      return movies.filter((movie) => movie.genres === genre);
     }
   };
 
-  // Efeito para salvar a lista de favoritos no localStorage sempre que houver alterações
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavoriteMovies(favorites);
-  }, []);
+  // Filtragem inicial de filmes
+  const filteredMovies = filterMovies(showFavorites, selectedGenre);
 
   return (
     <div className="App">
@@ -81,9 +65,9 @@ function App() {
           favoriteMovies={favoriteMovies}
         />
       </div>
-
       <Footer />
     </div>
   );
 }
+
 export default App;

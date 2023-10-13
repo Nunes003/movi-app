@@ -11,7 +11,7 @@ function Movie({ movie, onToggleFavorite, isFavorite }) {
 
   return (
     <div className="movie-card" key={movie.id}>
-      <p onClick={() => onToggleFavorite(movie.id)}>{isFavorite ? '🌟' : '✩'}</p>
+      <p className="estrela" onClick={() => onToggleFavorite(movie.id)}>{isFavorite ? '🌟' : '✩'}</p>
       <img
         src={movie.posterUrl}
         alt={movie.title}

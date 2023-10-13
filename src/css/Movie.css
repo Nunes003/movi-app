@@ -1,13 +1,11 @@
 
 /* ---- Capa dos Filmes ----*/
-
 img {
     width: 100%;
     height: auto;
     border-radius: 30px 30px;
-    object-fit: cover;
   }
-  
+
 /* ---- Dispizição dos filmes ----*/
 .movie-list {
     text-align: center;
@@ -35,3 +33,9 @@ img {
     flex-direction: column;
     background-color: #f3f0f486;
   }
+
+  .estrela{
+    cursor: pointer;
+}
+
+  
