@@ -7,16 +7,15 @@ import { movies, genres } from "./data/moviesJson";
 import Footer from "./components/Footer";
 
 function App() {
-  // Declaração de estados usando o Hook useState
+  // declara os estados
   const [selectedGenre, setSelectedGenre] = useState("All genres");
   const [showFavorites, setShowFavorites] = useState(false);
   const [favoriteMovies, setFavoriteMovies] = useState(() => {
-    // Carregue os favoritos do localStorage ou uma lista vazia se não houver dados salvos.
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     return favorites;
   });
 
-  // Função para alternar filmes favoritos e atualizar o localStorage
+  // Função para adicionar aos favoritos
   const toggleFavorite = (movieId) => {
     const updatedFavorites = [...favoriteMovies];
     const index = updatedFavorites.indexOf(movieId);
@@ -24,7 +23,7 @@ function App() {
       // Se o filme já é um favorito, remova-o da lista de favoritos
       updatedFavorites.splice(index, 1);
     } else {
-      // Se o filme não é um favorito, adicione-o à lista de favoritos
+      // Se o filme não é um favorito, adicione-o à lista
       updatedFavorites.push(movieId);
     }
     setFavoriteMovies(updatedFavorites);
@@ -32,16 +31,16 @@ function App() {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
-  // Função para filtrar filmes com base no gênero selecionado e na alternância de favoritos
+
   const filterMovies = (showFavs, genre) => {
     if (showFavs) {
-      // Se a opção de favoritos está ativa, filtra os filmes favoritos
+      // Mostra os filmes dos favoritos
       return movies.filter((movie) => favoriteMovies.includes(movie.id));
     } else if (genre === "All genres") {
-      // Se "All genres" está selecionado, mostra todos os filmes
+      // Mostra os filmes todos
       return movies;
     } else {
-      // Filtra os filmes com base no gênero selecionado
+      // Mostra os filmes por genero
       return movies.filter((movie) => movie.genres === genre);
     }
   };

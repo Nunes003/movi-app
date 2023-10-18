@@ -1,7 +1,9 @@
 import React from 'react';
 import '../css/Header.css';
 import NavBar from './NavBar';
-function Header({ genres, selectedGenre, onGenreChange, showFavorites, onShowFavorites }) {
+
+
+const Header = ({ genres, selectedGenre, onGenreChange, showFavorites, onShowFavorites }) => {
   return (
     <header className="header">
       <img src="popcorn.png" alt="Popcorn" className="popcorn-image"/>

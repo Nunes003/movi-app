@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import '../css/Movie.css'
 
-function Movie({ movie, onToggleFavorite, isFavorite }) {
+const Movie = ({ movie, onToggleFavorite, isFavorite }) => {
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
 
-  // Toggle the visibility of additional information
   const toggleAdditionalInfo = () => {
     setShowAdditionalInfo(!showAdditionalInfo);
   };
@@ -12,11 +11,7 @@ function Movie({ movie, onToggleFavorite, isFavorite }) {
   return (
     <div className="movie-card" key={movie.id}>
       <p className="estrela" onClick={() => onToggleFavorite(movie.id)}>{isFavorite ? '🌟' : '✩'}</p>
-      <img
-        src={movie.posterUrl}
-        alt={movie.title}
-        onClick={toggleAdditionalInfo}
-      />
+      <img src={movie.posterUrl} alt={movie.title} onClick={toggleAdditionalInfo}/>
       <h2>{movie.title}</h2>
       <p className='letra'> Year: {movie.year}</p>
       <p className='letra'> {movie.genres}</p>

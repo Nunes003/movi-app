@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Footer.css";
 
-function Footer() {
+const Footer = () =>{
   return (
     <div className="footer">
       <span>Trabalho realizado por: João Nunes </span>

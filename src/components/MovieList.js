@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from './Movie';
 import '../css/Movie.css';
 
-function MovieList({ movies, onToggleFavorite, favoriteMovies }) {
+const MovieList = ({ movies, onToggleFavorite, favoriteMovies }) =>{
   return (
     <div className="movie-list">
       {movies.length > 0 ? (
