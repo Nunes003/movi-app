@@ -32,8 +32,8 @@ function App() {
   };
 
 
-  const filterMovies = (showFavs, genre) => {
-    if (showFavs) {
+  const filterMovies = (showFavorites, genre) => {
+    if (showFavorites) {
       // Mostra os filmes dos favoritos
       return movies.filter((movie) => favoriteMovies.includes(movie.id));
     } else if (genre === "All genres") {
