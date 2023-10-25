@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Header.css';
-import NavBar from './NavBar';
+import DropDown from './DropDown';
 
 
 const Header = ({ genres, selectedGenre, onGenreChange, showFavorites, onShowFavorites }) => {
@@ -8,7 +8,7 @@ const Header = ({ genres, selectedGenre, onGenreChange, showFavorites, onShowFav
     <header className="header">
       <img src="popcorn.png" alt="Popcorn" className="popcorn-image"/>
       <h1>Movie App</h1>
-      <NavBar
+      <DropDown
         genres={genres}
         selectedGenre={selectedGenre}
         onGenreChange={onGenreChange}

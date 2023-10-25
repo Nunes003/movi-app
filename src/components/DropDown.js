@@ -1,16 +1,8 @@
 import React from "react";
-import "../css/NavBar.css";
+import "../css/DropDown.css";
 
-// Definição do componente NavBar
-function NavBar({
-  genres,
-  selectedGenre,
-  onGenreChange,
-  showFavorites,
-  onShowFavorites,
-}) {
+const DropDown = ({genres,selectedGenre,onGenreChange,showFavorites,onShowFavorites,}) =>{
   
-
   const handleGenreChange = (event) => {
     const value = event.target.value;
     if (value === "Favorites") {
@@ -24,19 +16,18 @@ function NavBar({
   return (
     <nav className="navbar">
       <div className="navbar-item">
-        <select className="fav-button" onChange={handleGenreChange}>
+        <select className="fav-button" value={showFavorites ? "Favorites" : selectedGenre} onChange={handleGenreChange}>
           <option value="All genres">All genres</option>
           {genres.map((genre, index) => (
             <option key={index} value={genre}>
               {genre}
             </option>
           ))}
+          <option value="Favorites">Favorites</option>
         </select>
-        <button onClick={() => onShowFavorites(!showFavorites)} className="fav-button">Favorites</button>
       </div>
     </nav>
   );
 }
 
-// Exporta o componente NavBar
-export default NavBar;
+export default DropDown;

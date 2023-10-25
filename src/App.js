@@ -7,7 +7,7 @@ import { movies, genres } from "./data/moviesJson";
 import Footer from "./components/Footer";
 
 function App() {
-  // declara os estados
+  // declarar os estados
   const [selectedGenre, setSelectedGenre] = useState("All genres");
   const [showFavorites, setShowFavorites] = useState(false);
   const [favoriteMovies, setFavoriteMovies] = useState(() => {
@@ -15,37 +15,29 @@ function App() {
     return favorites;
   });
 
-  // Função para adicionar aos favoritos
-  const toggleFavorite = (movieId) => {
-    const updatedFavorites = [...favoriteMovies];
-    const index = updatedFavorites.indexOf(movieId);
-    if (index !== -1) {
-      // Se o filme já é um favorito, remova-o da lista de favoritos
-      updatedFavorites.splice(index, 1);
-    } else {
-      // Se o filme não é um favorito, adicione-o à lista
-      updatedFavorites.push(movieId);
-    }
-    setFavoriteMovies(updatedFavorites);
-    // Salve os favoritos no localStorage
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  };
+const toggleFavorite = (movieId) => {
+  // se já está na lista de favoritos
+  const isFavorite = favoriteMovies.includes(movieId);
+
+  const updatedFavorites = isFavorite ? favoriteMovies.filter((id) => id !== movieId) : favoriteMovies.concat(movieId);
+
+  setFavoriteMovies(updatedFavorites);
+  localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+};
 
 
-  const filterMovies = (showFavorites, genre) => {
+const filterMovies = (showFavorites, genres) => {
+  return movies.filter((movie) => {
     if (showFavorites) {
-      // Mostra os filmes dos favoritos
-      return movies.filter((movie) => favoriteMovies.includes(movie.id));
-    } else if (genre === "All genres") {
-      // Mostra os filmes todos
-      return movies;
+      return favoriteMovies.includes(movie.id);
+    } else if (genres === "All genres") {
+      return true;
     } else {
-      // Mostra os filmes por genero
-      return movies.filter((movie) => movie.genres === genre);
+      return movie.genres === genres;
     }
-  };
+  });
+};
 
-  // Filtragem inicial de filmes
   const filteredMovies = filterMovies(showFavorites, selectedGenre);
 
   return (

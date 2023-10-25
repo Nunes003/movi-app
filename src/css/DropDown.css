@@ -1,0 +1,26 @@
+
+/* navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    border-radius: 50px;
+  }
+  
+  /* ---- DropDown ----*/
+  
+  /* Estilo para o botão */
+  .fav-button {
+    background-color: #09639f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px; 
+  }
+  
+  .fav-button:hover {
+    border: 2px solid #34db5e;
+  }
