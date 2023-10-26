@@ -18,9 +18,7 @@ function App() {
 const toggleFavorite = (movieId) => {
   // se já está na lista de favoritos
   const isFavorite = favoriteMovies.includes(movieId);
-
   const updatedFavorites = isFavorite ? favoriteMovies.filter((id) => id !== movieId) : favoriteMovies.concat(movieId);
-
   setFavoriteMovies(updatedFavorites);
   localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
 };
@@ -31,7 +29,7 @@ const filterMovies = (showFavorites, genres) => {
     if (showFavorites) {
       return favoriteMovies.includes(movie.id);
     } else if (genres === "All genres") {
-      return true;
+      return movies;
     } else {
       return movie.genres === genres;
     }
